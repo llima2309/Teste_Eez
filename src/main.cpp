@@ -5,7 +5,6 @@
 #include <Preferences.h>
 
 
-#define LV_LVGL_H_INCLUDE_SIMPLE 1
 #define SCREEN_WIDTH 320
 #define SCREEN_HEIGHT 240
 #define DRAW_BUF_SIZE (SCREEN_WIDTH * SCREEN_HEIGHT / 10 * (LV_COLOR_DEPTH / 8))
@@ -47,18 +46,13 @@ void setup()
 
   // Integrate EEZ Studio GUI.
   ui_init();
-  lv_label_set_text(objects.label_nome_maquina,"Tear 25");
-  update_UI();
+  lv_label_set_text(objects.lbl_nome_maquina,"Tear 25");
   Serial.println();
   Serial.println("Setup complete.");
 }
 
 void loop()
 {
-  lv_led_set_color(objects.ledindicador, lv_color_hex(0x00ff0f));
   update_UI();
-  delay(5000);
-  lv_led_set_color(objects.ledindicador, lv_color_hex(0x0032ff));
-  update_UI();
-  delay(5000);
+  delay(5);
 }
